@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 77
+chmod 777 hello
