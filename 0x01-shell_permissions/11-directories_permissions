@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -v -R 755 ./
+su chmod -v -R 755 ./
