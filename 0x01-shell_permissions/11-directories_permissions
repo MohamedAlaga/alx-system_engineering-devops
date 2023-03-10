@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -type d -r /.
+chmod ugo+x -type d -r /.
