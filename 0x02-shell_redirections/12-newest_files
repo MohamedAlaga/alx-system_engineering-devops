@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d |sort -m |head -n 10
+find . -type d |sort -m |tail -n 10
