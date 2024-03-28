@@ -11,7 +11,7 @@ echo "server {
     root   /etc/nginx/html;
     index  index.html;
     location /redirect_me {
-        return 301 https://twitter.com/Emmanue17280546;
+        return 301 https://github.com/MohamedAlaga;
     error_page 404 /custom_404.html;
         location = /custom_404.html {
                 root /var/www/html/;
