@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-# Configure Nginx server so that /redirect_me is redirecting to another page
-# redirection must be a “301 Moved Permanently”
-# By: Imanol Asolo
+# configures an Nginx server so that /redirect_me is redirecting to another page
 
-ADD301_REDIRECT="\\\trewrite ^/redirect_me https://github.com/MohamedAlaga permanent;"
-
-sudo apt-get update
-sudo apt-get install -y nginx
-sudo chown -R ubuntu /var/www
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
-sudo service nginx restart
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://github.com/MohamedAlaga permanent;' /etc/nginx/sites-available/default
+service nginx start
