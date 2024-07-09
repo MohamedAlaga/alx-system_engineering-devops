@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# configures an Nginx server so that /redirect_me is redirecting to another page
+# shellcheck disable=SC2154
+# configures an Nginx server so that with costum header 
 
 apt-get -y update
 apt-get -y install nginx
