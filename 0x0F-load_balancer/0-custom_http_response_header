@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2154
-# configures an Nginx server so that with costum header 
-
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+#configures a new Ubuntu machine nginx
+sudo apt-get update
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 new_string="listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}"
 sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
