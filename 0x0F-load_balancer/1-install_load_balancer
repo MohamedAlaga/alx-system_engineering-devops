@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 #configures a new Ubuntu machine nginx
 
-apt-get update
-apt-get install software-properties-common -y
-add-apt-repository ppa:vbernat/haproxy-1.7 -y
-apt-get update
-apt-get install haproxy=1.7.\* -y
+apt-get -y update
+apt-get -y install haproxy=1.6.\*
 echo '
 frontend mohamedalaga.tech
         bind 0:80
