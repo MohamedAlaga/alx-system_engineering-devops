@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
-#configures a new Ubuntu machine nginx
+# configures a new HAproxy as a load balancer
 
 apt-get -y update
 apt-get -y install haproxy=1.6.\*
+
 echo '
 frontend mohamedalaga.tech
         bind 0:80
-        default_backend web-backend
+        default_backend web_servers
 
-backend web-backend
+backend web_servers
         balance roundrobin
-        server web1 35.175.132.56:80 check
-        server web2 54.157.130.43.104:80 check
+        server 375502-web-01 35.175.132.56:80
+        server 375502-web-02 54.157.130.43:80
 ' >> /etc/haproxy/haproxy.cfg
-sudo service haproxy restart
+
+service haproxy restart
