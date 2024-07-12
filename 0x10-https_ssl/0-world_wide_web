@@ -6,6 +6,7 @@ domain_information () {
     local domain="$1"
     local subdomain="$2"
     local line
+    # shellcheck disable=SC2086
     line=$(dig "$subdomain"."$domain" +short)
     if [ -z "$line" ]; then
         echo "The subdomain $subdomain does not exist."
