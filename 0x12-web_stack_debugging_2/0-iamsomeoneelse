@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
-sudo chsh -s /bin/bash www-data
-su www-data
-whoami
+# Check if the script is run with an argument
+if [ -z "$1" ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+
+# Execute a command as the specified user
+sudo -u "$1" -- whoami
