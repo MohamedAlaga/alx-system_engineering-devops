@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo chsh -s /bin/bash www-data
+su - www-data
+whoami
