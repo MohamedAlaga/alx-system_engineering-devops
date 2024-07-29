@@ -10,7 +10,7 @@ if __name__ == "__main__":
     user_id = sys.argv[1]
     user = requests.get("{}/users/{}".format(url, user_id)).json()
     todos = requests.get("{}/todos?userId={}".format(url, user_id)).json()
-    
+
     with open("{}.json".format(user_id), "w") as jsonfile:
         json.dump({user_id: [{"task": task.get("title"),
                               "completed": task.get("completed"),
