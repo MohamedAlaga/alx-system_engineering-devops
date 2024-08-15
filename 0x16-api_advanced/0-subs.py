@@ -12,4 +12,6 @@ def number_of_subscribers(subreddit):
                      headers={"User-Agent": "Mozilla/5.0"})
     if x.status_code == 200:
         return x.json().get("data").get("subscribers")
-    return 0
+    else:
+        print(x.status_code)
+        print(x.json().get("error"))
